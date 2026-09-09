@@ -1,6 +1,7 @@
 package br.com.petz.cliente_pet.application.api;
 
 import br.com.petz.cliente_pet.application.service.ClienteService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.web.bind.annotation.RestController;
