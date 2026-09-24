@@ -1,5 +1,6 @@
 package br.com.petz.cliente_pet.application.api;
 
+import br.com.petz.cliente_pet.application.domain.Cliente;
 import br.com.petz.cliente_pet.application.domain.Sexo;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import lombok.Value;
@@ -22,4 +23,18 @@ public class ClienteDetalhadoResponse {
     private String telefone;
     private Boolean aceitaTermos;
     private LocalDateTime dataHoraCadastro;
+
+
+    public ClienteDetalhadoResponse(Cliente cliente) {
+        this.idCliente = cliente.getIdCliente();
+        this.nomeCompleto = cliente.getNomeCompleto();
+        this.email = cliente.getEmail();
+        this.celular = cliente.getCelular();
+        this.cpf = cliente.getCpf();
+        this.dataNascimento = cliente.getDataNascimento();
+        this.sexo = cliente.getSexo();
+        this.telefone = cliente.getTelefone();
+        this.aceitaTermos = cliente.getAceitaTermos();
+        this.dataHoraCadastro = cliente.getDataHoraCadastro();
+    }
 }
