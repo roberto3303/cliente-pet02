@@ -15,13 +15,13 @@ import java.time.LocalDateTime;
 import java.util.UUID;
 
 @Getter
-@NoArgsConstructor(access = AccessLevel.PRIVATE)
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Entity
 public class Cliente {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "idCliente", updatable = false, unique = true, nullable = false)
+    @Column(columnDefinition = "uuid",name = "idCliente", updatable = false, unique = true, nullable = false)
     private UUID idCliente;
     @NotBlank
     private String nomeCompleto;
