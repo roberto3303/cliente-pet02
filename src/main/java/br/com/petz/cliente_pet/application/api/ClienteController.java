@@ -1,5 +1,6 @@
 package br.com.petz.cliente_pet.application.api;
 
+import br.com.petz.cliente_pet.application.domain.Cliente;
 import br.com.petz.cliente_pet.application.service.ClienteService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -15,7 +16,6 @@ import java.util.UUID;
 public class ClienteController implements ClienteAPI {
 
     private final ClienteService clienteService;
-
 
     @Override
     public ClienteResponse postCliente(ClienteRequest clienteRequest) {
@@ -40,5 +40,13 @@ public class ClienteController implements ClienteAPI {
         ClienteDetalhadoResponse clienteDetalhadoResponse = clienteService.buscaClienteAtravesId(idCliente);
         log.info("[finaliza] ClienteController - getClienteAtravesId");
         return clienteDetalhadoResponse;
+    }
+
+    @Override
+    public void deletaClienteAtravesId(UUID idCliente) {
+        log.info("[inicia] ClienteController - deletaClienteAtravesId");
+        log.info("IdCliente: {}", idCliente);
+        clienteService.deletaClienteAtravesId(idCliente);
+        log.info("[finaliza] ClienteController - deletaClienteAtravesId");
     }
 }
