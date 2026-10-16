@@ -5,6 +5,7 @@ import br.com.petz.cliente_pet.application.repository.ClienteRepository;
 import br.com.petz.cliente_pet.handler.APIException;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Repository;
 
@@ -24,7 +25,11 @@ public class ClienteInfraRepository implements ClienteRepository {
     @Override
     public Cliente salva(Cliente cliente) {
         log.info("[inicia] ClienteInfraRepository - salva");
-        clienteSpringDataJpaRepository.save(cliente);
+        try {
+            clienteSpringDataJpaRepository.save(cliente);
+        } catch (DataIntegrityViolationException e) {
+            throw APIException.build(HttpStatus.BAD_REQUEST, "Cpf ou email já cadastrado");
+        }
         log.info("[finaliza] ClienteInfraRepository - salva");
         return cliente;
     }
