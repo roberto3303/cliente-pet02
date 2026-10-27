@@ -3,11 +3,9 @@ package br.com.petz.cliente_pet.application.api;
 import br.com.petz.cliente_pet.application.domain.Sexo;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
-import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import lombok.Value;
-import org.hibernate.validator.constraints.br.CPF;
 
 import java.time.LocalDate;
 
