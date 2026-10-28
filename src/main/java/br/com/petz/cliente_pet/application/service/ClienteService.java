@@ -1,9 +1,6 @@
 package br.com.petz.cliente_pet.application.service;
 
-import br.com.petz.cliente_pet.application.api.ClienteDetalhadoResponse;
-import br.com.petz.cliente_pet.application.api.ClienteListResponse;
-import br.com.petz.cliente_pet.application.api.ClienteRequest;
-import br.com.petz.cliente_pet.application.api.ClienteResponse;
+import br.com.petz.cliente_pet.application.api.*;
 
 import java.util.List;
 import java.util.UUID;
@@ -16,4 +13,6 @@ public interface ClienteService {
     ClienteDetalhadoResponse buscaClienteAtravesId(UUID idCliente);
 
     void deletaClienteAtravesId(UUID idCliente);
+
+    void patchAlteraCliente(UUID idCliente, ClienteAlteracaoRequest clienteAlteracaoRequest);
 }
